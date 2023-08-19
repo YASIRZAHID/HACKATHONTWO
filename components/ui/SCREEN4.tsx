@@ -3,9 +3,9 @@ import { Button } from "./button";
 
 export default function Screen4() {
   return (
-    <div className="min-h-screen flex  justify-center items-center border-b -translate-y-[20%]">
-      <div className=" h-[50%] w-[90%] mt-[5%] ">
-        <div className="a z-0 bg-slate-300 opacity-10 h-[80%] mt-[9%] flex items-center">
+    <div className="max-h-screen flex  justify-center items-center ">
+      <div className=" h-[80%] w-[90%] mt-[5%] ">
+        <div className="a z-0 bg-slate-300 opacity-10 h-[90%] mt-[9%] flex items-center">
           <h1 className="scroll-m-20 text-4xl font-extrabold tracking-widest lg:text-8xl lg:leading-[1.3] lg:-tracking-loose w-[60%] md:w-[40%] mx-[4%] text-black ">
             Different From Others
           </h1>
@@ -64,8 +64,8 @@ export default function Screen4() {
               </div>
             </div>
             <div className="h-[90%] w-[50%] my-auto  flex">
-              <div className="bg-slate-400 w-[40%] h-full">
-                <Image src={'/model/FMODEL (1).png'} width={600} height={600} alt="sc4i" style={{ width: '100%', height: '80%'}} className="mt-[25%]">
+              <div className="bg-slate-400 w-[40%] h-full -translate-y-[10%]">
+                <Image src={'/model/FMODEL (1).png'} width={600} height={600} alt="sc4i" style={{ width: '100%', height: '100%'}}>
                 </Image>
               </div>
               <div className=" w-[50%] mx-auto my-auto h-[60%]">

@@ -1,0 +1,26 @@
+let Products = [
+    ['/model/KMODEL (1).png', 'kNAME', 'CATEGORY1', '$$$', 'DISCOUNT', 'kids','PRIORITY','PRODUCTNUMBER'],
+    ['/model/KMODEL (2).png', 'kNAME', 'CATEGORY1', '$$$', 'DISCOUNT', 'kids','PRIORITY','PRODUCTNUMBER'],
+    ['/model/KMODEL (3).png', 'kNAME', 'CATEGORY1', '$$$', 'DISCOUNT', 'kids','PRIORITY','PRODUCTNUMBER'],
+    ['/model/KMODEL (4).png', 'kNAME', 'CATEGORY1', '$$$', 'DISCOUNT', 'kids','PRIORITY','PRODUCTNUMBER'],
+    ['/model/KMODEL (5).png', 'kNAME', 'CATEGORY1', '$$$', 'DISCOUNT', 'kids','PRIORITY','PRODUCTNUMBER'],
+    ['/model/KMODEL (6).png', 'kNAME', 'CATEGORY1', '$$$', 'DISCOUNT', 'kids','PRIORITY','PRODUCTNUMBER'],
+    ['/model/KMODEL (7).png', 'kNAME', 'CATEGORY1', '$$$', 'DISCOUNT', 'kids','PRIORITY','PRODUCTNUMBER'],
+    ['/model/FMODEL (1).png', 'kNAME', 'CATEGORY1', '$$$', 'DISCOUNT', 'female','PRIORITY','PRODUCTNUMBER'],
+    ['/model/FMODEL (2).png', 'kNAME', 'CATEGORY1', '$$$', 'DISCOUNT', 'female','discount1','PRODUCTNUMBER'],
+    ['/model/FMODEL (3).png', 'kNAME', 'CATEGORY1', '$$$', 'DISCOUNT', 'female','PRIORITY','PRODUCTNUMBER'],
+    ['/model/FMODEL (4).png', 'kNAME', 'CATEGORY1', '$$$', 'DISCOUNT', 'female','PRIORITY','PRODUCTNUMBER'],
+    ['/model/FMODEL (5).png', 'kNAME', 'CATEGORY1', '$$$', 'DISCOUNT', 'female','PRIORITY','PRODUCTNUMBER'],
+    ['/model/FMODEL (6).png', 'kNAME', 'CATEGORY1', '$$$', 'DISCOUNT', 'female','PRIORITY','PRODUCTNUMBER'],
+    ['/model/FMODEL (7).png', 'kNAME', 'CATEGORY1', '$$$', 'DISCOUNT', 'female','PRIORITY','PRODUCTNUMBER'],
+    ['/MODEL6.PNG', 'kNAME', 'CATEGORY1', '$$$', 'DISCOUNT', 'female','main','PRODUCTNUMBER'],
+    ['/model/MMODEL (1).png', 'kNAME', 'CATEGORY1', '$$$', 'DISCOUNT', 'male','PRIORITY','PRODUCTNUMBER'],
+    ['/model/MMODEL (2).png', 'kNAME', 'CATEGORY1', '$$$', 'DISCOUNT', 'male','PRIORITY','PRODUCTNUMBER'],
+    ['/model/MMODEL (3).png', 'kNAME', 'CATEGORY1', '$$$', 'DISCOUNT', 'male','PRIORITY','PRODUCTNUMBER'],
+    ['/model/MMODEL (4).png', 'kNAME', 'CATEGORY1', '$$$', 'DISCOUNT', 'male','PRIORITY','PRODUCTNUMBER'],
+    ['/model/MMODEL (5).png', 'kNAME', 'CATEGORY1', '$$$', 'DISCOUNT', 'male','PRIORITY','PRODUCTNUMBER'],
+    ['/model/MMODEL (6).png', 'kNAME', 'CATEGORY1', '$$$', 'DISCOUNT', 'male','discount3','PRODUCTNUMBER'],
+    ['/model/MMODEL (7).png', 'kNAME', 'CATEGORY1', '$$$', 'DISCOUNT', 'male','discount2','PRODUCTNUMBER'],
+  ];
+
+export default Products;

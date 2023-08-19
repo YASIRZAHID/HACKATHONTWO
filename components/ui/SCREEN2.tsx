@@ -1,5 +1,11 @@
 import Image from "next/image";
+import Products from "@/app/UTILS/PRODUCTS";
 import { Button } from "./button";
+
+let discount1 =  Products.filter(product=>product[6]=='discount1')
+let discount2 =  Products.filter(product=>product[6]=='discount2')
+let discount3 =  Products.filter(product=>product[6]=='discount3')
+
 export default function Screen2() {
     return (
         <div className="min-h-screen flex justify-center items-center">
@@ -24,7 +30,7 @@ export default function Screen2() {
                                 </h6>
                             </div>
                             <div className=" w-[25%] ml-auto h-full">
-                            <Image src={'/model/FMODEL (2).png'} width={600} height={600} alt="sc4i" style={{ width: '100%', height: '80%'}} className="mt-[25%]">
+                            <Image src={discount1[0][0]} width={600} height={600} alt="sc4i" style={{ width: '100%', height: '80%'}} className="mt-[25%]">
                             </Image>
                             </div>
                         </div>
@@ -52,7 +58,7 @@ export default function Screen2() {
                             </div>
                         </div>
                         <div className="h-[60%] w-full">
-                            <Image src={'/model/MMODEL (7).png'} width={600} height={600} alt="sc4i" style={{ width: '100%', height: '100%'}} className="mt-">
+                            <Image src={discount2[0][0]} width={600} height={600} alt="sc4i" style={{ width: '100%', height: '100%'}} className="mt-">
                             </Image>
                         </div>
                     </div>
@@ -69,7 +75,7 @@ export default function Screen2() {
                             </div>
                         </div>
                         <div className="h-[60%] w-full">
-                            <Image src={'/model/MMODEL (6).png'} width={600} height={600} alt="sc4i" style={{ width: '100%', height: '100%'}} className="mt-">
+                            <Image src={discount3[0][0]} width={600} height={600} alt="sc4i" style={{ width: '100%', height: '100%'}} className="mt-">
                             </Image>
                         </div>
                     </div>

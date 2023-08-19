@@ -1,6 +1,9 @@
 import Image from "next/image";
+import Products from "@/app/UTILS/PRODUCTS";
 import { Button } from "@/components/ui/button";
 import { ShoppingCart } from "lucide-react";
+
+let main = Products.filter(product=>product[6]=='main')
 
 export default function Screen1() {
   return (
@@ -41,7 +44,7 @@ export default function Screen1() {
           .
         </div>
         <Image
-          src="/MODEL6.PNG"
+          src={main[0][0]}
           width={850}
           height={850}
           alt="model"

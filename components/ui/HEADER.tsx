@@ -43,7 +43,7 @@ export default function Headermain({ showNavbar, setShowNavbar }) {
                 <div className="ml-10 flex items-baseline space-x-4">
                   <Link
                     href="/Female"
-                    className=" text-black px-3 py-2 rounded-md text-sm font-medium"
+                    className=" text-black hover:bg-gray-400 hover:text-black px-3 py-2 rounded-md text-sm font-medium"
                     // onClick={handleClickTab(1)}
                   >
                     Female
