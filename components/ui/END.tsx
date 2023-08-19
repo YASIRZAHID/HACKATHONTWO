@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function Footer(){
     return(
-        <div className="min-h-screen w-full -translate-y-[30%] border-b">
+        <div className="min-h-screen w-full translate-y-[30%] border-b">
             <div className=" w-full h-[80%]  mt-[7%]">
                 <div className=" h-[25%] w-full">
                     <h1 className=" scroll-m-20 text-4xl font-bold tracking-wide opacity-10 lg:text-9xl text-center">

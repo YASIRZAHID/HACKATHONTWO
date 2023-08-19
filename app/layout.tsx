@@ -3,6 +3,7 @@ import Headermain from "@/components/ui/HEADER";
 import "./globals.css";
 import { useState } from "react";
 import Navbar from "@/components/ui/navbar";
+import Footer from "@/components/ui/END";
 export const metadata = {
   title: "HACKATHON",
   description: "PANAVERSE CHALLEGE 1",
@@ -30,6 +31,7 @@ export default function RootLayout({
                 setShowNavbar={setShowNavbar}
               />
               {children}
+              <Footer/>
             </div>
           </div>
         </body>

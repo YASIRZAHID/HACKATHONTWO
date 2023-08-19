@@ -5,7 +5,6 @@ import Screen2 from "@/components/ui/SCREEN2";
 import Screen3 from "@/components/ui/SCREEN3";
 import Screen4 from "@/components/ui/SCREEN4";
 import Footer from "@/components/ui/END";
-import Navbar from "@/components/ui/navbar";
 import { useState } from "react";
 
 export default function Home() {
@@ -23,7 +22,7 @@ export default function Home() {
             <Screen2 />
             <Screen3 />
             <Screen4 />
-            <Footer />
+            {/* <Footer /> */}
         </div>
     {/* </div> */}
     </>
