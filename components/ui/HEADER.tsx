@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 
 const sequence = ['w', 'wh', 'wha', 'what', 'what y', 'what yo', 'what you',, 'what you l',, 'what you lo', 'what you loo', 'what you look', 'what you looki', 'what you lookin', 'what you looking', 'what you looking f', 'what you looking fo', 'what you looking for'];
@@ -32,36 +33,42 @@ export default function Headermain({ showNavbar, setShowNavbar }) {
                     o
                   </div>
                   <div className="text-2xl font-bold translate-y-6">
-                    Dine Market
+                    <Link href={'/'}>
+                      Dine Market
+                    </Link>
                   </div>
                 </div>
               </div>
               <div className="hidden md:block translate-y-3">
                 <div className="ml-10 flex items-baseline space-x-4">
-                  <a
-                    href="#"
-                    className="bg-gray-200 text-black px-3 py-2 rounded-md text-sm font-medium"
+                  <Link
+                    href="/Female"
+                    className=" text-black px-3 py-2 rounded-md text-sm font-medium"
+                    // onClick={handleClickTab(1)}
                   >
                     Female
-                  </a>
-                  <a
-                    href="#"
+                  </Link>
+                  <Link
+                    href="/Male"
                     className="text-black hover:bg-gray-400 hover:text-black px-3 py-2 rounded-md text-sm font-medium"
+                    // onClick={handleClickTab(1)}
                   >
                     Male
-                  </a>
-                  <a
-                    href="#"
+                  </Link>
+                  <Link
+                    href="/Kids"
                     className="text-black hover:bg-gray-400 hover:text-black px-3 py-2 rounded-md text-sm font-medium"
+                    // onClick={handleClickTab(1)}
                   >
                     Kids
-                  </a>
-                  <a
-                    href="#"
+                  </Link>
+                  <Link
+                    href="/All"
                     className="text-black hover:bg-gray-400 hover:text-black px-3 py-2 rounded-md text-sm font-medium"
+                    // onClick={handleClickTab(1)}
                   >
                     All Products
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>

@@ -6,28 +6,26 @@ import Screen3 from "@/components/ui/SCREEN3";
 import Screen4 from "@/components/ui/SCREEN4";
 import Footer from "@/components/ui/END";
 import Navbar from "@/components/ui/navbar";
-import NavbarContext from "@/components/ui/context";
-import { useContext, useState } from "react";
+import { useState } from "react";
 
 export default function Home() {
-  // const show = useContext(NavbarContext);
   const [showNavbar, setShowNavbar] = useState(false);
 
   return (
     <>
-      <div className="flex min-h-screen">
-       {showNavbar && <div className="w-1/5 bg-lightgray">
+      {/* <div className="flex min-h-screen"> */}
+       {/* {showNavbar && <div className="w-1/5 bg-lightgray">
              <Navbar/>
-        </div>}
+        </div>} */}
         <div className="flex-1 flex flex-col">
-            <Headermain showNavbar={showNavbar} setShowNavbar={setShowNavbar} />
+            {/* <Headermain showNavbar={showNavbar} setShowNavbar={setShowNavbar} /> */}
             <Screen1 />
             <Screen2 />
             <Screen3 />
             <Screen4 />
             <Footer />
         </div>
-    </div>
+    {/* </div> */}
     </>
   );
 }
