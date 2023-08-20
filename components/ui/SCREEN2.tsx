@@ -1,6 +1,7 @@
 import Image from "next/image";
-import Products from "@/app/UTILS/PRODUCTS";
+import Products from "@/app/DB/PRODUCTS";
 import { Button } from "./button";
+import Link from "next/link";
 
 let discount1 =  Products.filter(product=>product[6]=='discount1')
 let discount2 =  Products.filter(product=>product[6]=='discount2')
@@ -42,7 +43,9 @@ export default function Screen2() {
                             <h6 className="scroll-m-20 text-sm md:text-xl font-semibold tracking-[0.15em] leading-9 text-white">
                                 USE PROMO CODE
                             </h6>
+                            <Link href={'/All'}>
                             <Button variant={'secondary'} className="hover:text-black"><div className="md:tracking-[0.3em] text-xsm md:text-lg  hover:text-black">DINEWEEKENDSALE</div></Button>
+                            </Link>
                         </div>
                     </div>
                     <div className="bg-orange-200 mx-auto w-[22%] h-full flex flex-col justify-between">

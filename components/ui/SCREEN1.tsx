@@ -1,7 +1,8 @@
 import Image from "next/image";
-import Products from "@/app/UTILS/PRODUCTS";
+import Products from "@/app/DB/PRODUCTS";
 import { Button } from "@/components/ui/button";
 import { ShoppingCart } from "lucide-react";
+import Link from "next/link";
 
 let main = Products.filter(product=>product[6]=='main')
 
@@ -21,9 +22,11 @@ export default function Screen1() {
         <h3 className="scroll-m-20 text-xs md:text-2xl md:font-semibold tracking-tight md:mt-10 ml-[13%] mr-[10%]">
         Anyone can beat you but no one can beat your outfit as long as you wear Dine outfits.
         </h3>
+        <Link href={'/All'}>
         <Button className="ml-[13%] mt-[5%] h-[8%] w-40 text-xs md:text-sm">
              <ShoppingCart className="mr-2 h-4 w-4" /> Start Shopping
         </Button>
+        </Link>
         <div className="ml-[13%] opacity-60">
             <Image src={"/BAZAAR1.png"} alt="logo1" width={100} height={100} className="icon inline-flex justify-center items-center mr-10 mt-10">
             </Image>

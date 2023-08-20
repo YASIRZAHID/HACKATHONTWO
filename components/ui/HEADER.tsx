@@ -2,11 +2,13 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { CartCountProvider, useCartCount } from "@/app/CONTEXT/CONTEXT";
 
 
 const sequence = ['w', 'wh', 'wha', 'what', 'what y', 'what yo', 'what you',, 'what you l',, 'what you lo', 'what you loo', 'what you look', 'what you looki', 'what you lookin', 'what you looking', 'what you looking f', 'what you looking fo', 'what you looking for'];
 
 export default function Headermain({ showNavbar, setShowNavbar }) {
+  const {cartCount} = useCartCount();
   const [valueIndex, setValueIndex] = useState(0);
   const value = sequence[valueIndex];
   useEffect(() => {
@@ -93,6 +95,7 @@ export default function Headermain({ showNavbar, setShowNavbar }) {
               <div className="ml-4 flex items-center md:ml-6">
                 <div className="ml-3 relative">
                   <div className="relative">
+                    <Link href={'/CART'}>
                     <button
                       className=" z-10 max-w-xs translate-y-5 bg-gray-300 rounded-full flex items-center text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
                       id="user-menu"
@@ -106,8 +109,9 @@ export default function Headermain({ showNavbar, setShowNavbar }) {
                         alt="User Avatar"
                       />
                     </button>
+                    </Link>
                     <div className="absolute inset-0 flex items-center justify-center z-20 h-5 w-5 translate-y-4 translate-x-5 bg-red-300 rounded-full font text-sm">
-                      0
+                      {cartCount}
                     </div>
                   </div>
                 </div>

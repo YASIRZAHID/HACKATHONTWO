@@ -6,7 +6,7 @@ let Products = [
     ['/model/KMODEL (5).png', 'kNAME', 'CATEGORY1', '$$$', 'DISCOUNT', 'kids','PRIORITY','PRODUCTNUMBER'],
     ['/model/KMODEL (6).png', 'kNAME', 'CATEGORY1', '$$$', 'DISCOUNT', 'kids','PRIORITY','PRODUCTNUMBER'],
     ['/model/KMODEL (7).png', 'kNAME', 'CATEGORY1', '$$$', 'DISCOUNT', 'kids','PRIORITY','PRODUCTNUMBER'],
-    ['/model/FMODEL (1).png', 'kNAME', 'CATEGORY1', '$$$', 'DISCOUNT', 'female','PRIORITY','PRODUCTNUMBER'],
+    ['/model/FMODEL (1).png', 'kNAME', 'CATEGORY1', '$$$', 'DISCOUNT', 'female','wa','PRODUCTNUMBER'],
     ['/model/FMODEL (2).png', 'kNAME', 'CATEGORY1', '$$$', 'DISCOUNT', 'female','discount1','PRODUCTNUMBER'],
     ['/model/FMODEL (3).png', 'kNAME', 'CATEGORY1', '$$$', 'DISCOUNT', 'female','PRIORITY','PRODUCTNUMBER'],
     ['/model/FMODEL (4).png', 'kNAME', 'CATEGORY1', '$$$', 'DISCOUNT', 'female','PRIORITY','PRODUCTNUMBER'],
