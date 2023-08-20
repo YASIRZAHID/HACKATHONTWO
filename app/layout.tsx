@@ -4,6 +4,8 @@ import "./globals.css";
 import { useState } from "react";
 import Navbar from "@/components/ui/navbar";
 import Footer from "@/components/ui/END";
+import { CartCountProvider } from "./CONTEXT/CONTEXT";
+import { CartProvider } from "./CONTEXT/CARTCONTEXT";
 export const metadata = {
   title: "HACKATHON",
   description: "PANAVERSE CHALLEGE 1",
@@ -19,6 +21,8 @@ export default function RootLayout({
     <>
       <html lang="en">
         <body>
+          <CartProvider>
+          <CartCountProvider>
           <div className="flex min-h-screen">
             {showNavbar && (
               <div className="w-1/5 bg-lightgray">
@@ -34,6 +38,8 @@ export default function RootLayout({
               <Footer/>
             </div>
           </div>
+          </CartCountProvider>
+          </CartProvider>
         </body>
       </html>
     </>

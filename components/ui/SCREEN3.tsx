@@ -1,4 +1,10 @@
 import Image from "next/image";
+import Products from "@/app/DB/PRODUCTS";
+
+let slide1 =  Products.filter(product=>product[6]=='slide1')
+let slide2 =  Products.filter(product=>product[6]=='slide2')
+let slide3 =  Products.filter(product=>product[6]=='slide3')
+
 export default function Screen3() {
     return (
         <div className="min-h-screen flex justify-center items-center border-b">
@@ -15,7 +21,7 @@ export default function Screen3() {
                     <div className=" w-[30%] h-full">
                         <div className=" h-[90%] w-[90%] mx-[5%] mt-[5%] hover:mx-0 hover:my-0 hover:w-[100%] hover:h-[100%] transition-all duration-500 ease-in-out">
                             <div className="bg-slate-300 h-[80%] w-full ">
-                                <Image src={'/model/MMODEL (6).png'} width={600} height={600} alt="sc4i" style={{ width: '100%', height: '100%'}} className="mt-">
+                                <Image src={slide1[0][0]} width={600} height={600} alt="sc4i" style={{ width: '100%', height: '100%'}} className="mt-">
                                 </Image>
                             </div>
                             <div className="w-full h-[20%] mt-[3%]">
@@ -31,7 +37,7 @@ export default function Screen3() {
                     <div className=" mx-auto w-[30%] h-full">
                     <div className=" h-[90%] w-[90%] mx-[5%] mt-[5%] hover:mx-0 hover:my-0 hover:w-[100%] hover:h-[100%] transition-all duration-500 ease-in-out">
                             <div className="bg-slate-300 h-[80%] w-full ">
-                                <Image src={'/model/MMODEL (7).png'} width={600} height={600} alt="sc4i" style={{ width: '100%', height: '100%'}} className="mt-">
+                                <Image src={slide2[0][0]} width={600} height={600} alt="sc4i" style={{ width: '100%', height: '100%'}} className="mt-">
                                 </Image>
                             </div>
                             <div className="w-full h-[20%] mt-[3%]">
@@ -47,7 +53,7 @@ export default function Screen3() {
                     <div className=" w-[30%] h-full">
                     <div className=" h-[90%] w-[90%] mx-[5%] mt-[5%] hover:mx-0 hover:my-0 hover:w-[100%] hover:h-[100%] transition-all duration-500 ease-in-out">
                             <div className="bg-slate-300 h-[80%] w-full ">
-                                <Image src={'/model/MMODEL (5).png'} width={600} height={600} alt="sc4i" style={{ width: '100%', height: '100%'}} className="mt-">
+                                <Image src={slide3[0][0]} width={600} height={600} alt="sc4i" style={{ width: '100%', height: '100%'}} className="mt-">
                                 </Image>
                             </div>
                             <div className="w-full h-[20%] mt-[3%]">

@@ -1,6 +1,10 @@
 import Image from "next/image";
+import Products from "@/app/DB/PRODUCTS";
 import { Button } from "./button";
+import Link from "next/link";
 
+let brandFace = Products[7]
+console.log(brandFace);
 export default function Screen4() {
   return (
     <div className="max-h-screen flex  justify-center items-center ">
@@ -64,8 +68,8 @@ export default function Screen4() {
               </div>
             </div>
             <div className="h-[90%] w-[50%] my-auto  flex">
-              <div className="bg-slate-400 w-[40%] h-full -translate-y-[10%]">
-                <Image src={'/model/FMODEL (1).png'} width={600} height={600} alt="sc4i" style={{ width: '100%', height: '100%'}}>
+              <div className="bg-slate-400 w-[40%] h-full -translate-y-[10%] shadow-lg hover:shadow-xl hover:w-[39%] hover:h-[98%] transition-all duration-500 ease-in-out">
+                <Image src={brandFace[0]} width={600} height={600} alt="sc4i" style={{ width: '100%', height: '100%'}}>
                 </Image>
               </div>
               <div className=" w-[50%] mx-auto my-auto h-[60%]">
@@ -75,7 +79,9 @@ export default function Screen4() {
                   The Natural color is the actual natural color of the fiber,
                   undyed and 100% traceable.
                 </p>
+                <Link href={'/All'}>
                 <Button className="mt-[5%] text-xs md:text-base">See All Products </Button>
+                </Link>
               </div>
             </div>
           </div>
