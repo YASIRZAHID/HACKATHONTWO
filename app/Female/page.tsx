@@ -1,15 +1,16 @@
 'use client'
 import React from 'react';
 import Image from "next/image";
-import Products from '../DB/PRODUCTS';
 import { useCartCount } from "../CONTEXT/CONTEXT";
 import { useCart,CartItem} from '../CONTEXT/CARTCONTEXT';
-
-let FemaleProducts = Products.filter(product => product[5] === 'female');
+import { useProducts } from '../CONTEXT/productsContext';
 
 export default function FemaleSection() {
+  const products = useProducts();
   const { addToCart,cartItems } = useCart();
   const { setNewCartCount } = useCartCount();
+
+  let FemaleProducts = products.filter(product => product[5] === 'female');
   const handleAdd = (item: any) => {
     const existingCartItem = cartItems.find((cartItem) => cartItem.productNumber === item[7]);
     if (existingCartItem) {

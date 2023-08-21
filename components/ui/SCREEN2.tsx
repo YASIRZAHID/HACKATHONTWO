@@ -1,13 +1,13 @@
 import Image from "next/image";
-import Products from "@/app/DB/PRODUCTS";
+import { useProducts } from "@/app/CONTEXT/productsContext";
 import { Button } from "./button";
 import Link from "next/link";
 
-let discount1 =  Products.filter(product=>product[6]=='discount1')
-let discount2 =  Products.filter(product=>product[6]=='discount2')
-let discount3 =  Products.filter(product=>product[6]=='discount3')
-
 export default function Screen2() {
+    const products = useProducts();
+    let discount1 =  products.filter(product=>product[6]=='discount1')
+    let discount2 =  products.filter(product=>product[6]=='discount2')
+    let discount3 =  products.filter(product=>product[6]=='discount3')
     return (
         <div className="min-h-screen flex justify-center items-center">
             <div className="w-[85%] h-[80%] mx-auto my-auto ">

@@ -7,7 +7,7 @@ import { CartCountProvider, useCartCount } from "@/app/CONTEXT/CONTEXT";
 
 const sequence = ['w', 'wh', 'wha', 'what', 'what y', 'what yo', 'what you',, 'what you l',, 'what you lo', 'what you loo', 'what you look', 'what you looki', 'what you lookin', 'what you looking', 'what you looking f', 'what you looking fo', 'what you looking for'];
 
-export default function Headermain({ showNavbar, setShowNavbar }) {
+export default function Headermain() {
   const {cartCount} = useCartCount();
   const [valueIndex, setValueIndex] = useState(0);
   const value = sequence[valueIndex];
@@ -21,7 +21,7 @@ export default function Headermain({ showNavbar, setShowNavbar }) {
 }, [valueIndex]);
 
   const handleClick = () => {
-    setShowNavbar(!showNavbar);
+    // setShowNavbar(!showNavbar); // commented out for now will implement later
   };
   return (
     <div>
@@ -42,34 +42,58 @@ export default function Headermain({ showNavbar, setShowNavbar }) {
                 </div>
               </div>
               <div className="hidden md:block translate-y-3">
-                <div className="ml-10 flex items-baseline space-x-4">
+                <div className="ml-10 flex items-baseline space-x-4 ">
                   <Link
                     href="/Female"
-                    className=" text-black hover:bg-gray-400 hover:text-black px-3 py-2 rounded-md text-sm font-medium"
+                    className=" text-black  hover:text-black px-3 py-2 rounded-md text-sm font-medium"
                     // onClick={handleClickTab(1)}
                   >
+                    <button
+                      className="  flex items-center rounded-full focus:outline-none focus:ring-2 focus:ring-offset-8  focus:ring-black transition-all duration-1000 ease-in-out"
+                      id="user-menu"
+                      aria-haspopup="true"
+                    >
                     Female
+                    </button>
                   </Link>
                   <Link
                     href="/Male"
-                    className="text-black hover:bg-gray-400 hover:text-black px-3 py-2 rounded-md text-sm font-medium"
+                    className="text-black hover:text-black px-3 py-2 rounded-md text-sm font-medium"
                     // onClick={handleClickTab(1)}
                   >
+                                      <button
+                      className="  flex items-center rounded-full focus:outline-none focus:ring-2 focus:ring-offset-8  focus:ring-black transition-all duration-1000 ease-in-out"
+                      id="user-menu"
+                      aria-haspopup="true"
+                    >
                     Male
+                    </button>
                   </Link>
                   <Link
                     href="/Kids"
-                    className="text-black hover:bg-gray-400 hover:text-black px-3 py-2 rounded-md text-sm font-medium"
+                    className="text-black  hover:text-black px-3 py-2 rounded-md text-sm font-medium"
                     // onClick={handleClickTab(1)}
                   >
+                                        <button
+                      className="  flex items-center rounded-full focus:outline-none focus:ring-2 focus:ring-offset-8  focus:ring-black transition-all duration-1000 ease-in-out"
+                      id="user-menu"
+                      aria-haspopup="true"
+                    >
                     Kids
+                    </button>
                   </Link>
                   <Link
                     href="/All"
-                    className="text-black hover:bg-gray-400 hover:text-black px-3 py-2 rounded-md text-sm font-medium"
+                    className="text-black  hover:text-black px-3 py-2 rounded-md text-sm font-medium"
                     // onClick={handleClickTab(1)}
                   >
+                                        <button
+                      className="  flex items-center rounded-full focus:outline-none focus:ring-2 focus:ring-offset-8  focus:ring-black transition-all duration-1000 ease-in-out"
+                      id="user-menu"
+                      aria-haspopup="true"
+                    >
                     All Products
+                    </button>
                   </Link>
                 </div>
               </div>

@@ -1,11 +1,11 @@
 import Image from "next/image";
-import Products from "@/app/DB/PRODUCTS";
+import { useProducts } from "@/app/CONTEXT/productsContext";
 import { Button } from "./button";
 import Link from "next/link";
 
-let brandFace = Products[7]
-console.log(brandFace);
 export default function Screen4() {
+  const products = useProducts();
+  let brandFace = products[7]
   return (
     <div className="max-h-screen flex  justify-center items-center ">
       <div className=" h-[80%] w-[90%] mt-[5%] ">
