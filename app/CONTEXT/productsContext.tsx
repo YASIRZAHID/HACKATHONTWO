@@ -1,4 +1,30 @@
-let Products = [
+import React, { createContext, useContext, ReactNode } from 'react';
+
+type Product = [
+  string, // Picture
+  string, // Name
+  string, // Category
+  string, // Price
+  string, // Discount
+  string, // Gender
+  string, // Priority
+  string, // Product Number
+];
+
+interface ProductsContextProps {
+  products: Product[];
+}
+
+const ProductsContext = createContext<ProductsContextProps | undefined>(
+  undefined
+);
+
+interface ProductsProviderProps {
+  children: ReactNode;
+}
+
+export function ProductsProvider({ children }: ProductsProviderProps) {
+  const products: Product[] = [
     ['/model/KMODEL (1).png', 'White Shirt', 'Shirt', '125', 'DISCOUNT0', 'kids','PRIORITYF','PN001'],
     ['/model/KMODEL (2).png', 'White Jacket', 'Jacket', '145', 'DISCOUNT0', 'kids','PRIORITYF','PN002'],
     ['/model/KMODEL (3).png', 'Gray Shirt', 'Shirt', '90', 'DISCOUNT0', 'kids','PRIORITYF','PN003'],
@@ -20,7 +46,24 @@ let Products = [
     ['/model/MMODEL (4).png', 'Dark Gray Jacket', 'Jacket', '145', 'DISCOUNT0', 'male','PRIORITYF','PN019'],
     ['/model/MMODEL (5).png', 'Gray Cotton Hoodie', 'Hoodie', '130', 'DISCOUNT0', 'male','slide3','PN020'],
     ['/model/MMODEL (6).png', 'Flex Push Bomber', 'Shirt', '190', 'DISCOUNT0', 'male','discount3','PN021'],
-    ['/model/MMODEL (7).png', 'White Jacket', 'Jacket', '75', 'DISCOUNT0', 'male','discount2','PN022'],
+    ['/model/MMODEL (7).png', 'White Jacket', 'Jacket', '75', 'DISCOUNT0', 'male','discount2','PN022']
   ];
 
-export default Products;
+  const contextValue: ProductsContextProps = {
+    products,
+  };
+
+  return (
+    <ProductsContext.Provider value={contextValue}>
+      {children}
+    </ProductsContext.Provider>
+  );
+}
+
+export function useProducts() {
+  const context = useContext(ProductsContext);
+  if (!context) {
+    throw new Error('useProducts must be used within a ProductsProvider');
+  }
+  return context.products;
+}

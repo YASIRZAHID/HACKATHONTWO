@@ -1,12 +1,12 @@
 import Image from "next/image";
-import Products from "@/app/DB/PRODUCTS";
+import { useProducts } from "@/app/CONTEXT/productsContext";
 import { Button } from "@/components/ui/button";
 import { ShoppingCart } from "lucide-react";
 import Link from "next/link";
 
-let main = Products.filter(product=>product[6]=='main')
-
 export default function Screen1() {
+  const products = useProducts();
+  let main = products.filter(product=>product[6]=='main')
   return (
     <div className=" w-full min-h-screen  flex flex-row">
       <div className="w-[50%] h-full">

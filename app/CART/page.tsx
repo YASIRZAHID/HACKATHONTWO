@@ -1,16 +1,9 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import Products from "../DB/PRODUCTS";
 import { Button } from "@/components/ui/button";
 import { useCartCount } from "../CONTEXT/CONTEXT";
 import { useCart } from "../CONTEXT/CARTCONTEXT";
-
-let MaleProducts = Products.filter((product) => product[5] === "male");
-let Cart: any = MaleProducts.map((product) => ({
-  ...product,
-  [8]: "1",
-}));
 
 export default function CartSection() {
   const { cartItems, updateCart } = useCart();

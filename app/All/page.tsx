@@ -1,11 +1,12 @@
 'use client'
 import React from 'react'
 import Image from "next/image";
-import Products from '../DB/PRODUCTS';
 import { useCartCount } from "../CONTEXT/CONTEXT";
 import { useCart,CartItem} from '../CONTEXT/CARTCONTEXT';
+import { useProducts } from '../CONTEXT/productsContext';
 
 export default function AllSection() {
+  const products = useProducts();
   const { addToCart,cartItems } = useCart();
   const { setNewCartCount } = useCartCount();
   const handleAdd = (item: any) => {
@@ -35,7 +36,7 @@ export default function AllSection() {
   return (
     <div className="min-h-screen flex flex-col">
       <div className="h-full w-[88%] flex flex-wrap mx-auto mt-[5%]">
-        {Products.map((product, index) => (
+        {products.map((product, index) => (
           <div key={index} className="w-[22%] h-[15%] mx-auto mt-[3%]">
             <div className="mx-[9%] h-full ">
               <div className="h-[70%] w-full bg-teal-700 flex shadow-sm hover:shadow-xl hover:w-[98%] hover:h-[68%] transition-all duration-200 ease-in-out  mix-blend-multiply cursor-pointer rounded-sm hover:rounded-lg hover:ring-2 ring-lime-400 " onClick={()=>handleAdd(product)}>
