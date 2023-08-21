@@ -6,6 +6,7 @@ import Footer from "@/components/ui/END";
 import { CartCountProvider } from "./CONTEXT/CONTEXT";
 import { CartProvider } from "./CONTEXT/CARTCONTEXT";
 import { ProductsProvider } from "./CONTEXT/productsContext";
+
 export const metadata = {
   title: "HACKATHON",
   description: "PANAVERSE CHALLEGE 1",

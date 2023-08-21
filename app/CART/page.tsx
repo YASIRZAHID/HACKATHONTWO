@@ -4,6 +4,7 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { useCartCount } from "../CONTEXT/CONTEXT";
 import { useCart } from "../CONTEXT/CARTCONTEXT";
+import toast, { Toaster } from 'react-hot-toast';
 
 export default function CartSection() {
   const { cartItems, updateCart } = useCart();
@@ -14,6 +15,9 @@ export default function CartSection() {
     if (updatedCart[index] && Number(updatedCart[index].quantity) > 1) {
       updatedCart[index].quantity = String(Number(updatedCart[index].quantity) - 1);
       updateCart(updatedCart);
+      toast.success('Cart Updated.');
+    }else{
+      toast.error('Quantity can not be less than 1.');
     }
   };
 
@@ -22,12 +26,14 @@ export default function CartSection() {
     if (updatedCart[index]) {
       updatedCart[index].quantity =  String(Number(updatedCart[index].quantity) + 1);
       updateCart(updatedCart);
+      toast.success('Cart Updated.');
     }
   };
 
   const handleRemove = (index: any) => {
     const updatedCart = [...cartItems];
     updatedCart.splice(index, 1);
+    toast.success('Item Removed.');
     updateCart(updatedCart);
   };
   const calculateTotalPrice = (cart:any) => {
@@ -120,6 +126,7 @@ export default function CartSection() {
                   X
                 </Button>
               </div>
+              <Toaster/>
             </div>
           </div>
         ))}

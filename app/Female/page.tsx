@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useCartCount } from "../CONTEXT/CONTEXT";
 import { useCart,CartItem} from '../CONTEXT/CARTCONTEXT';
 import { useProducts } from '../CONTEXT/productsContext';
+import toast, { Toaster } from 'react-hot-toast';
 
 export default function FemaleSection() {
   const products = useProducts();
@@ -14,7 +15,7 @@ export default function FemaleSection() {
   const handleAdd = (item: any) => {
     const existingCartItem = cartItems.find((cartItem) => cartItem.productNumber === item[7]);
     if (existingCartItem) {
-      alert('Item is already added to the cart');
+      toast.error('Item already added to cart.');
     } else {
       const cartItem: CartItem = {
         picture: item[0],
@@ -29,7 +30,7 @@ export default function FemaleSection() {
       };
       addToCart(cartItem);
       setNewCartCount(calculateItems(cartItems)+1);
-      alert('Item added to cart');
+      toast.success('Item added to cart.');
     }
   };
   const calculateItems = (cart: any[]) => {
@@ -45,6 +46,7 @@ export default function FemaleSection() {
                         <Image src={product[0]} width={600} height={600} alt="sc4i" style={{ width: '100%', height: '100%'}} >
                         </Image>
                 </div>
+                <Toaster/>
                 <h6 className="scroll-m-20 text-xs md:text-lg lg:text-xl font-bold tracking-[0.02em] mt-[2%] flex">
                 {product[1]}
                 </h6>
