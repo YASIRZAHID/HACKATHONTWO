@@ -4,6 +4,7 @@ import Image from "next/image";
 import Products from "../DB/PRODUCTS";
 import { Button } from "@/components/ui/button";
 import { useCartCount } from "../CONTEXT/CONTEXT";
+import { useCart } from "../CONTEXT/CARTCONTEXT";
 
 let MaleProducts = Products.filter((product) => product[5] === "male");
 let Cart: any = MaleProducts.map((product) => ({
@@ -11,33 +12,35 @@ let Cart: any = MaleProducts.map((product) => ({
   [8]: "1",
 }));
 
-export default function MaleSection() {
-  const {setNewCartCount} = useCartCount();
-  const [cart, setCart] = useState(Cart);
+export default function CartSection() {
+  const { cartItems, updateCart } = useCart();
+  const { setNewCartCount } = useCartCount();
   const [price, setPrice] = useState(0);
   const handleDecrease = (index: any) => {
-    const updatedCart = [...cart];
-    if (updatedCart[index] && updatedCart[index][8] > "1") {
-      updatedCart[index][8] = String(Number(updatedCart[index][8]) - 1); // Decrease the quantity
-      setCart(updatedCart);
+    const updatedCart = [...cartItems];
+    if (updatedCart[index] && Number(updatedCart[index].quantity) > 1) {
+      updatedCart[index].quantity = String(Number(updatedCart[index].quantity) - 1);
+      updateCart(updatedCart);
     }
   };
+
   const handleIncrease = (index: any) => {
-    const updatedCart = [...cart];
+    const updatedCart = [...cartItems];
     if (updatedCart[index]) {
-      updatedCart[index][8] = String(Number(updatedCart[index][8]) + 1); // Increase the quantity
-      setCart(updatedCart); 
+      updatedCart[index].quantity =  String(Number(updatedCart[index].quantity) + 1);
+      updateCart(updatedCart);
     }
   };
+
   const handleRemove = (index: any) => {
-    const updatedCart = [...cart];
-    updatedCart.splice(index, 1); // Remove the product at the specified index
-    setCart(updatedCart); 
+    const updatedCart = [...cartItems];
+    updatedCart.splice(index, 1);
+    updateCart(updatedCart);
   };
   const calculateTotalPrice = (cart:any) => {
     const totalPrice = cart.reduce((total:any, product:any) => {
-      const productPrice = Number(product[3]);
-      const productQuantity = Number(product[8]);
+      const productPrice = Number(product.price);
+      const productQuantity = Number(product.quantity);
       return total + productPrice * productQuantity;
     }, 0);
     return totalPrice;
@@ -46,9 +49,9 @@ export default function MaleSection() {
     return cart.length;
   };
   useEffect(() => {
-    setPrice(calculateTotalPrice(cart)); // Update price whenever cart changes
-    setNewCartCount(calculateItems(cart));
-  }, [cart]);
+    setPrice(calculateTotalPrice(cartItems));
+    setNewCartCount(calculateItems(cartItems));
+  }, [cartItems]);
 
   return (
     <div className="min-h-screen flex">
@@ -79,12 +82,12 @@ export default function MaleSection() {
               </div>
             </div>
           </div>
-        {cart.map((product: any, index: any) => (
+        {cartItems.map((product: any, index: any) => (
           <div key={index} className="w-[90%] max-h-[50%] flex mx-auto mt-[3%]">
             <div className=" h-full w-full flex flex-row">
               <div className="h-f w-[25%] flex bg-slate-400 shadow-sm hover:shadow-xl transition-all duration-100 ease-in-out  mix-blend-multiply cursor-pointer rounded-sm hover:rounded-lg hover:ring-2 ring-rose-800 ">
                 <Image
-                  src={product[0]}
+                  src={product.picture}
                   width={600}
                   height={600}
                   alt="sc4i"
@@ -92,13 +95,13 @@ export default function MaleSection() {
                 ></Image>
               </div>
               <h6 className="w-[15%] ml-[2%] flex items-center justify-center scroll-m-20 text-xs md:text-lg lg:text-xl font-bold tracking-[0.02em] mt-[2%] ">
-                {product[1]}
+                {product.name}
               </h6>
               <h6 className="w-[15%] flex items-center justify-center scroll-m-20 opacity-75 text-xs md:text-lg lg:text-lg font-semibold tracking-[0.02em] mt-[2%]">
-                {product[2]}
+                {product.category}
               </h6>
               <h6 className="w-[15%] flex items-center justify-center scroll-m-20 opacity-75 text-xs md:text-lg lg:text-2xl font-bold tracking-[0.02em] mt-[2%]">
-                ${Number(product[3]) * Number(product[8])}
+                ${Number(product.price) * Number(product.quantity)}
               </h6>
               <div className="w-[15%]  flex items-center justify-center scroll-m-20 opacity-75 text-xs md:text-lg lg:text-2xl font-bold tracking-[0.02em] mt-[2%]">
                 <Button
@@ -107,7 +110,7 @@ export default function MaleSection() {
                 >
                   -
                 </Button>
-                {product[8]}
+                {product.quantity}
                 <Button
                   className="ml-[3%]"
                   onClick={() => handleIncrease(index)}

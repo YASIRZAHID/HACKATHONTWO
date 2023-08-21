@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState, ReactNode } from "react";
 
-interface CartItem {
+export interface CartItem {
   picture: string;
   name: string;
   category: string;
@@ -16,6 +16,7 @@ interface CartContextProps {
   cartItems: CartItem[];
   addToCart: (item: CartItem) => void;
   removeFromCart: (productNumber: string) => void;
+  updateCart: (newCartItems: CartItem[]) => void;
 }
 
 const CartContext = createContext<CartContextProps | undefined>(undefined);
@@ -37,10 +38,15 @@ export function CartProvider({ children }: CartProviderProps) {
     );
   };
 
+  const updateCart = (newCartItems: CartItem[]) => {
+    setCartItems(newCartItems);
+  };
+
   const contextValue: CartContextProps = {
     cartItems,
     addToCart,
     removeFromCart,
+    updateCart
   };
 
   return (
