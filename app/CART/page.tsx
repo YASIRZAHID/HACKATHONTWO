@@ -38,8 +38,8 @@ export default function CartSection() {
   };
   const calculateTotalPrice = (cart:any) => {
     const totalPrice = cart.reduce((total:any, product:any) => {
-      const productPrice = Number(product.price);
-      const productQuantity = Number(product.quantity);
+      const productPrice = Number(product?.price);
+      const productQuantity = Number(product?.quantity);
       return total + productPrice * productQuantity;
     }, 0);
     return totalPrice;
@@ -86,7 +86,7 @@ export default function CartSection() {
             <div className=" h-full w-full flex flex-row">
               <div className="h-f w-[25%] flex bg-slate-400 shadow-sm hover:shadow-xl transition-all duration-100 ease-in-out  mix-blend-multiply cursor-pointer rounded-sm hover:rounded-lg hover:ring-2 ring-rose-800 ">
                 <Image
-                  src={product.picture}
+                  src={product?.picture}
                   width={600}
                   height={600}
                   alt="sc4i"
