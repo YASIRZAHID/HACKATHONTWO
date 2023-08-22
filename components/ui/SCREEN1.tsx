@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export default function Screen1() {
   const products = useProducts();
-  let main = products.filter(product=>product[6]=='main')
+  let main = products.filter(product=>product?.priority=='main')
   return (
     <div className=" w-full min-h-screen  flex flex-row">
       <div className="w-[50%] h-full">
@@ -47,7 +47,7 @@ export default function Screen1() {
           .
         </div>
         <Image
-          src={main[0][0]}
+          src={main[0]?.picture}
           width={850}
           height={850}
           alt="model"

@@ -5,9 +5,9 @@ import Link from "next/link";
 
 export default function Screen2() {
     const products = useProducts();
-    let discount1 =  products.filter(product=>product[6]=='discount1')
-    let discount2 =  products.filter(product=>product[6]=='discount2')
-    let discount3 =  products.filter(product=>product[6]=='discount3')
+    let discount1 =  products.filter(product=>product?.priority=='discount1')
+    let discount2 =  products.filter(product=>product?.priority=='discount2')
+    let discount3 =  products.filter(product=>product?.priority=='discount3')
     return (
         <div className="min-h-screen flex justify-center items-center">
             <div className="w-[85%] h-[80%] mx-auto my-auto ">
@@ -31,7 +31,7 @@ export default function Screen2() {
                                 </h6>
                             </div>
                             <div className=" w-[25%] ml-auto h-full">
-                            <Image src={discount1[0][0]} width={600} height={600} alt="sc4i" style={{ width: '100%', height: '80%'}} className="mt-[25%]">
+                            <Image src={discount1[0]?.picture} width={600} height={600} alt="sc4i" style={{ width: '100%', height: '80%'}} className="mt-[25%]">
                             </Image>
                             </div>
                         </div>
@@ -61,7 +61,7 @@ export default function Screen2() {
                             </div>
                         </div>
                         <div className="h-[60%] w-full">
-                            <Image src={discount2[0][0]} width={600} height={600} alt="sc4i" style={{ width: '100%', height: '100%'}} className="mt-">
+                            <Image src={discount2[0]?.picture} width={600} height={600} alt="sc4i" style={{ width: '100%', height: '100%'}} className="mt-">
                             </Image>
                         </div>
                     </div>
@@ -78,7 +78,7 @@ export default function Screen2() {
                             </div>
                         </div>
                         <div className="h-[60%] w-full">
-                            <Image src={discount3[0][0]} width={600} height={600} alt="sc4i" style={{ width: '100%', height: '100%'}} className="mt-">
+                            <Image src={discount3[0]?.picture} width={600} height={600} alt="sc4i" style={{ width: '100%', height: '100%'}} className="mt-">
                             </Image>
                         </div>
                     </div>

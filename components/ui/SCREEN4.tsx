@@ -69,7 +69,7 @@ export default function Screen4() {
             </div>
             <div className="h-[90%] w-[50%] my-auto  flex">
               <div className="bg-slate-400 w-[40%] h-full -translate-y-[10%] shadow-lg hover:shadow-xl hover:w-[39%] hover:h-[98%] transition-all duration-500 ease-in-out">
-                <Image src={brandFace[0]} width={600} height={600} alt="sc4i" style={{ width: '100%', height: '100%'}}>
+                <Image src={brandFace?.picture} width={600} height={600} alt="sc4i" style={{ width: '100%', height: '100%'}}>
                 </Image>
               </div>
               <div className=" w-[50%] mx-auto my-auto h-[60%]">
