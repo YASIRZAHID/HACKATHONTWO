@@ -6,6 +6,8 @@ import Footer from "@/components/ui/END";
 import { CartCountProvider } from "./CONTEXT/CONTEXT";
 import { CartProvider } from "./CONTEXT/CARTCONTEXT";
 import { ProductsProvider } from "./CONTEXT/productsContext";
+import { SessionProvider } from "./CONTEXT/USER";
+import { GProvider } from "@/components/ui/provider";
 
 export const metadata = {
   title: "HACKATHON",
@@ -21,6 +23,8 @@ export default function RootLayout({
     <>
       <html lang="en">
         <body>
+          <GProvider>
+          <SessionProvider>
           <ProductsProvider>
             <CartProvider>
               <CartCountProvider>
@@ -39,6 +43,8 @@ export default function RootLayout({
               </CartCountProvider>
             </CartProvider>
           </ProductsProvider>
+          </SessionProvider>
+          </GProvider>
         </body>
       </html>
     </>

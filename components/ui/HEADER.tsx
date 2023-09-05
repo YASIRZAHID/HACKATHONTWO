@@ -3,22 +3,43 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { CartCountProvider, useCartCount } from "@/app/CONTEXT/CONTEXT";
+import { Button } from "./button";
+import { SessionProvider, useSession } from "@/app/CONTEXT/USER";
+import SigninButton from "./gsign";
 
-
-const sequence = ['w', 'wh', 'wha', 'what', 'what y', 'what yo', 'what you',, 'what you l',, 'what you lo', 'what you loo', 'what you look', 'what you looki', 'what you lookin', 'what you looking', 'what you looking f', 'what you looking fo', 'what you looking for'];
+const sequence = [
+  "w",
+  "wh",
+  "wha",
+  "what",
+  "what y",
+  "what yo",
+  "what you",
+  "what you l",
+  "what you lo",
+  "what you loo",
+  "what you look",
+  "what you looki",
+  "what you lookin",
+  "what you looking",
+  "what you looking f",
+  "what you looking fo",
+  "what you looking for",
+];
 
 export default function Headermain() {
-  const {cartCount} = useCartCount();
+  const { sessionValue } = useSession();
+  const { cartCount } = useCartCount();
   const [valueIndex, setValueIndex] = useState(0);
   const value = sequence[valueIndex];
   useEffect(() => {
     const interval = setInterval(() => {
-        const nextIndex = (valueIndex + 1) % sequence.length;
-        setValueIndex(nextIndex);
+      const nextIndex = (valueIndex + 1) % sequence.length;
+      setValueIndex(nextIndex);
     }, 100);
 
     return () => clearInterval(interval);
-}, [valueIndex]);
+  }, [valueIndex]);
 
   const handleClick = () => {
     // setShowNavbar(!showNavbar); // commented out for now will implement later
@@ -35,9 +56,7 @@ export default function Headermain() {
                     o
                   </div>
                   <div className="text-2xl font-bold translate-y-6">
-                    <Link href={'/'}>
-                      Dine Market
-                    </Link>
+                    <Link href={"/"}>Dine Market</Link>
                   </div>
                 </div>
               </div>
@@ -53,7 +72,7 @@ export default function Headermain() {
                       id="user-menu"
                       aria-haspopup="true"
                     >
-                    Female
+                      Female
                     </button>
                   </Link>
                   <Link
@@ -61,12 +80,12 @@ export default function Headermain() {
                     className="text-black hover:text-black px-3 py-2 rounded-md text-sm font-medium"
                     // onClick={handleClickTab(1)}
                   >
-                                      <button
+                    <button
                       className="  flex items-center rounded-full focus:outline-none focus:ring-2 focus:ring-offset-8  focus:ring-black transition-all duration-1000 ease-in-out"
                       id="user-menu"
                       aria-haspopup="true"
                     >
-                    Male
+                      Male
                     </button>
                   </Link>
                   <Link
@@ -74,12 +93,12 @@ export default function Headermain() {
                     className="text-black  hover:text-black px-3 py-2 rounded-md text-sm font-medium"
                     // onClick={handleClickTab(1)}
                   >
-                                        <button
+                    <button
                       className="  flex items-center rounded-full focus:outline-none focus:ring-2 focus:ring-offset-8  focus:ring-black transition-all duration-1000 ease-in-out"
                       id="user-menu"
                       aria-haspopup="true"
                     >
-                    Kids
+                      Kids
                     </button>
                   </Link>
                   <Link
@@ -87,12 +106,12 @@ export default function Headermain() {
                     className="text-black  hover:text-black px-3 py-2 rounded-md text-sm font-medium"
                     // onClick={handleClickTab(1)}
                   >
-                                        <button
+                    <button
                       className="  flex items-center rounded-full focus:outline-none focus:ring-2 focus:ring-offset-8  focus:ring-black transition-all duration-1000 ease-in-out"
                       id="user-menu"
                       aria-haspopup="true"
                     >
-                    All Products
+                      All Products
                     </button>
                   </Link>
                 </div>
@@ -114,32 +133,31 @@ export default function Headermain() {
                 className=" px-4 py-2 text-sm border border-black rounded-md focus:outline-none focus:ring-blue-300 focus:border-blue-300 "
               />
             </div>
-
-            <div className="hidden md:block">
-              <div className="ml-4 flex items-center md:ml-6">
-                <div className="ml-3 relative">
-                  <div className="relative">
-                    <Link href={'/CART'}>
-                    <button
-                      className=" z-10 max-w-xs translate-y-5 bg-gray-300 rounded-full flex items-center text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
-                      id="user-menu"
-                      aria-haspopup="true"
-                    >
-                      <Image
-                        className="h-8 w-8 rounded-full"
-                        src="/cart.svg"
-                        width={"100"}
-                        height={"100"}
-                        alt="User Avatar"
-                      />
-                    </button>
-                    </Link>
-                    <div className="absolute inset-0 flex items-center justify-center z-20 h-5 w-5 translate-y-4 translate-x-5 bg-red-300 rounded-full font text-sm">
-                      {cartCount}
-                    </div>
-                  </div>
+           <div className="flex w-[10%]">
+            <div className=" md:block -translate-y-[40%] -translate-x-[50%]">
+              <div className="ml-3 relative">
+                <Link href={"/CART"}>
+                  <button
+                    className=" z-10 max-w-xs translate-y-5 bg-gray-300 rounded-full flex items-center text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
+                    id="user-menu"
+                    aria-haspopup="true"
+                  >
+                    <Image
+                      className="h-8 w-8 rounded-full"
+                      src="/cart.svg"
+                      width={"100"}
+                      height={"100"}
+                      alt="User Avatar"
+                    />
+                  </button>
+                </Link>
+                <div className="absolute inset-0 flex items-center justify-center z-20 h-5 w-5 translate-y-4 translate-x-5 bg-red-300 rounded-full font text-sm">
+                  {cartCount}
                 </div>
               </div>
+            </div>
+            {!sessionValue && <Button>Sign In</Button>}
+            {sessionValue && <Button>Sign Out</Button>}
             </div>
           </div>
         </div>

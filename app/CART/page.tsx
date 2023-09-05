@@ -5,9 +5,12 @@ import { Button } from "@/components/ui/button";
 import { useCartCount } from "../CONTEXT/CONTEXT";
 import { useCart } from "../CONTEXT/CARTCONTEXT";
 import toast, { Toaster } from 'react-hot-toast';
+import Link from "next/link";
+import { Checkout } from "@/components/ui/checkout";
 
 export default function CartSection() {
   const { cartItems, updateCart } = useCart();
+  console.log("i am cart",cartItems);
   const { setNewCartCount } = useCartCount();
   const [price, setPrice] = useState(0);
   const handleDecrease = (index: any) => {
@@ -52,6 +55,18 @@ export default function CartSection() {
     setNewCartCount(calculateItems(cartItems));
   }, [cartItems]);
 
+  useEffect(() => {
+    // Check to see if this is a redirect back from Checkout
+    const query = new URLSearchParams(window.location.search);
+    if (query.get('success')) {
+      alert('Order placed! You will receive an email confirmation.');
+    }
+    if (query.get('cancelled')) {
+      alert(
+        'Order canceled -- continue to shop around and checkout when you’re ready.'
+      );
+    }
+  }, []);
   return (
     <div className="min-h-screen flex">
       <div className="h-full w-[88%] flex flex-wrap mx-auto mt-[5%]">
@@ -74,7 +89,19 @@ export default function CartSection() {
               </h6>
               <div className="w-[15%] flex items-center justify-center">
                 <Button
+                  type="submit"
+                  role="link"
                   className="mt-[9%] "
+                  onClick={() => {
+                    // Store the JSON string in local storage under a specific key
+                    localStorage.setItem('CART', JSON.stringify(cartItems));
+                    toast.success("Redirecting to Payment Client");
+                    const lineItems = cartItems.map((originalProduct) => ({
+                      price: originalProduct.productNumber,
+                      quantity: parseInt(originalProduct.quantity, 10),
+                    }));
+                    Checkout({ lineItems });
+                  }}
                 >
                   CHECKOUT
                 </Button>
@@ -140,7 +167,19 @@ export default function CartSection() {
               </div>
               <div className="w-[15%] flex items-center justify-center">
                 <Button
+                  type="submit"
+                  role="link"
                   className="mt-[9%] "
+                  onClick={() => {
+                    // Store the JSON string in local storage under a specific key
+                    localStorage.setItem('CART', JSON.stringify(cartItems));
+                    toast.success("Redirecting to Payment Client");
+                    const lineItems = cartItems.map((originalProduct) => ({
+                      price: originalProduct.productNumber,
+                      quantity: parseInt(originalProduct.quantity, 10),
+                    }));
+                    Checkout({ lineItems });
+                  }}
                 >
                   CHECKOUT
                 </Button>
