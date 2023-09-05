@@ -7,11 +7,13 @@ import Screen3 from "@/components/ui/SCREEN3";
 import Screen4 from "@/components/ui/SCREEN4";
 import client from "./sanityClient/sanity";
 import { useProducts,useUpdateProduct } from "./CONTEXT/productsContext";
+import { useSession } from "./CONTEXT/USER";
 
 const builder = imageUrlBuilder(client);
 
 export default function Home() {
   const products = useProducts();
+  const {sessionValue} = useSession();
   const updateProduct = useUpdateProduct();
   interface Product {
   picture: string
@@ -24,7 +26,7 @@ export default function Home() {
   productNumber: string;
 }
   const [dataSet, setDataSet] = useState<Product[]>([]); // Initialize with an empty array of products
-
+console.log("i am session value", sessionValue);
   useEffect(() => {
     // Fetch data from Sanity
     client
@@ -47,6 +49,7 @@ export default function Home() {
         return builder.image(source)
       }
       // console.log("image here",product.picture.asset["_ref"]);
+      console.log("PRODUCTS here",product);
       const convertedProduct: Product = {
         // picture: builder.image('image-dcd5735df12122cb7b9b87d8cfbf324f16ebb604-500x500-png').width(500).url(),
         picture: builder.image(product.picture.asset?._ref).width(500).url(),
@@ -69,31 +72,7 @@ export default function Home() {
     async function fetchAndConvertData() {
       try {
         const initialProducts: Product[] = convertProducts(dataSet);
-        // updateProduct(initialProducts);
-        const transformedData = initialProducts.map(item => [
-          item.picture,
-          item.name,
-          item.category,
-          item.price,
-          item.discount,
-          item.gender,
-          item.priority,
-          item.productNumber,
-          '1'
-        ]);
-        console.log("Converted data:", transformedData);
-        const productsToUpdate: Product[] = transformedData.map(item => ({
-          picture: item[0],
-          name: item[1],
-          category: item[2],
-          price: item[3],
-          discount: item[4],
-          gender: item[5],
-          priority: item[6],
-          productNumber: item[7],
-        }));
-        console.log("products to update data:", transformedData);
-        if(transformedData.length > 0) {
+        if(initialProducts.length > 0) {
           updateProduct(initialProducts);
         }
       } catch (error) {
